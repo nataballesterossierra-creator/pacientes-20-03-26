@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class Paciente {
 
     protected String nombre;
@@ -39,22 +41,51 @@ public class Paciente {
 
     @Override
     public String toString() {
-        return "Paciente{" +
-                "costoConsulta=" + costoConsulta +
-                ", nombre='" + nombre + '\'' +
-                ", documento=" + documento +
-                '}';
+        return "Paciente: " + " Nombre: " + nombre + " Documento: " + documento +
+                ", Costo Consulta=" + costoConsulta +'\'' ;
     }
 
     public double calcularCostoFinal(){
      return costoConsulta;
     }
     public String mostrarInfo(){
-        System.out.println("Nombre: "+ nombre);
-        System.out.println("Documento: "+ documento);
-        System.out.println("costoConsulta "+ costoConsulta);
-        System.out.println("costoFinal "+ calcularCostoFinal());
-        return "";
+
+        return "Nombre: " + nombre +
+                        "\nDocumento: " + documento +
+                        "\ncostoConsulta: " + costoConsulta +
+                        "\ncostoFinal: " + calcularCostoFinal() +
+                        "\n";
     }
+
+
+
+    public static void mostrarPacientesCostosos(List<Paciente> lista) {
+        System.out.println("\nPacientes con costo final mayor a 300000:\n");
+
+        for (Paciente p : lista) {
+            if (p.calcularCostoFinal() > 300000) {
+                System.out.println(p.mostrarInfo());
+            }
+        }
+    }
+
+
+
+    public static Paciente pacienteQueMasPago(List<Paciente> lista){
+        if(lista.isEmpty()) return null;
+
+        Paciente mayor = lista.get(0);
+
+        for(Paciente p : lista){
+            if (p.calcularCostoFinal() > mayor.calcularCostoFinal()){
+                mayor = p;
+            }
+        }
+        return mayor;
+    }
+
+
+
+
 
 }

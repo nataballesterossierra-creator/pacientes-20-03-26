@@ -20,12 +20,10 @@ public class PacienteVip extends Paciente{
 
     @Override
     public String toString() {
-        return "PacienteVip{" +
-                "aniosFidelidad=" + aniosFidelidad +
-                ", costoConsulta=" + costoConsulta +
-                ", documento=" + documento +
-                ", nombre='" + nombre + '\'' +
-                '}';
+        return "PacienteVip: " + " Nombre: " + nombre+
+                ", Documento: " + documento +
+                "  aniosFidelidad: " + aniosFidelidad +
+                ",  CostoConsulta: " + costoConsulta + '\'';
     }
     @Override
     public double calcularCostoFinal(){
@@ -33,16 +31,16 @@ public class PacienteVip extends Paciente{
         if (costoFinal < 300000){
             if (aniosFidelidad== 10){
                 System.out.println("Se le asigna un descuento de 40% ");
-                System.out.println(costoFinal = costoConsulta*(40/100.0));
-                System.out.println(costoFinal);
+                System.out.println(costoFinal = costoConsulta-(costoConsulta * (40 / 100.0)));
+
             } else if (aniosFidelidad == 5) {
                 System.out.println("Se le asigna un descuento de 30% ");
-                System.out.println(costoFinal = costoConsulta*(30/100.0));
-                System.out.println(costoFinal);
+                System.out.println(costoFinal = costoConsulta-(costoConsulta*(30/100.0)));
+
             } else if (aniosFidelidad != (10 & 5)) {
                 System.out.println(" Se le asigna un descuento de 20% ");
-                System.out.println(costoFinal = costoConsulta*(20/100.0));
-                System.out.println(costoFinal);
+                System.out.println(costoFinal = costoConsulta-(costoConsulta*(20/100.0)));
+
             }else {
                 System.out.println(costoConsulta);
             }
@@ -51,4 +49,14 @@ public class PacienteVip extends Paciente{
         }
         return (costoFinal);
     }
+
+    @Override
+    public String mostrarInfo(){
+        return "Nombre: " + nombre +
+                "\nDocumento: " + documento +
+                "\nAños fidelidad: " + aniosFidelidad +
+                "\nCosto consulta: " + costoConsulta +
+                "\nCosto final: " + calcularCostoFinal() + "\n";
+    }
+
 }

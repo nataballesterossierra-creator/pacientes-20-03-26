@@ -20,12 +20,9 @@ public class PacienteEps extends Paciente{
 
     @Override
     public String toString() {
-        return "PacienteEps{" +
-                "nombreEps='" + nombreEps + '\'' +
-                ", costoConsulta=" + costoConsulta +
-                ", documento=" + documento +
-                ", nombre='" + nombre + '\'' +
-                '}';
+        return "PacienteEps: " +  " Nombre: " + nombre +", documento=" + documento +
+                ", NombreEps: '" + nombreEps + '\'' +
+                ", Costo Consulta: " + costoConsulta + '\'' ;
     }
 
     @Override
@@ -33,32 +30,26 @@ public class PacienteEps extends Paciente{
         double costoFinal = 0;
         if (costoConsulta == 300000){
             System.out.println("Se le asigna un descuento de 25% ");
-            System.out.println(costoFinal = costoConsulta*(25/100.0));
-            System.out.println(costoFinal);
+            System.out.println(costoFinal = costoConsulta-(costoConsulta*(25/100.0))) ;
+
         } else if (costoConsulta == 200000) {
             System.out.println("Se le asigna un descuento de 20% ");
-            System.out.println(costoFinal = costoConsulta*(20/100.0));
-            System.out.println(costoFinal);
-        } else if (costoConsulta != 200000) {
-            if (costoConsulta != 300000) {
-                System.out.println(" Se le asigna un descuento de 30% ");
-                System.out.println(costoFinal = costoConsulta * (30 / 100.0));
-                System.out.println(costoFinal);
-            } else {
-                System.out.println(costoConsulta);
-            }
+            System.out.println(costoFinal = costoConsulta-(costoConsulta*(20/100.0)));
+
         } else {
-            System.out.println(costoConsulta);
-        }
+                System.out.println(" Se le asigna un descuento de 30% ");
+                System.out.println(costoFinal = costoConsulta-(costoConsulta * (30 / 100.0)));
+
+            }
         return (costoFinal);
     }
-
-
+    @Override
     public String mostrarInfo(){
-        System.out.println("Nombre: "+ nombre);
-        System.out.println("Documento: "+ documento);
-        System.out.println("costoConsulta "+ costoConsulta);
-        System.out.println("costoFinal "+ calcularCostoFinal());
-        return "";
+        return "Nombre: " + nombre +
+                "\nDocumento: " + documento +
+                "\nEPS: " + nombreEps +
+                "\nCosto consulta: " + costoConsulta +
+                "\nCosto final: " + calcularCostoFinal() + "\n";
+
     }
 }

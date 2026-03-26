@@ -80,7 +80,7 @@ public class Main {
                     }
                     Paciente P1 = null;
                     for (Paciente e : lstPacientes){
-                        if(e.getDocumento(){
+                        if(e.getDocumento()== Documentop){
                             P1 = e;
                             System.out.println(P1.mostrarInfo());
                         }
@@ -138,20 +138,34 @@ public class Main {
                     }
                     Paciente P = null;
                     for (Paciente e : lstPacientes){
-                        if(e.getDocumento() {
+                        if(e.getDocumento()== Documentop1) {
                             P = e;
-                            System.out.println(P1.mostrarInfo());
+                            System.out.println(P.mostrarInfo());
                         }
                     }
                     P.calcularCostoFinal();
                     break;
 
                 case 8:
+                    System.out.println(" Pacientes con la consulta más Costosa");
+                    Paciente.mostrarPacientesCostosos(lstPacientes);
+
                     break;
 
                 case 9:
-                    break;
+                    System.out.println("Paciente que más pago por la Consulta: ");
+                    Paciente mayor = Paciente.pacienteQueMasPago(lstPacientes);
+                    if (mayor == null) {
+                        System.out.println("No hay pacientes registrados.\n");
+                    } else {
+                        System.out.println(" El paciente que más pagó es:");
+                        System.out.println(mayor.mostrarInfo());
+                    }
+
+                break;
                 case 10:
+                    System.out.println("Saliendo del sistema....");
+                    System.out.println("   Good Bye- See you Later '-' ");
                     break;
 
                 default:
